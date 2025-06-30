@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { FaLeaf } from "react-icons/fa6";
 
 export default function HomeLiveTips() {
   const [show, setShow] = useState(false);
@@ -11,9 +12,23 @@ export default function HomeLiveTips() {
         show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
     >
-      <h1 className="text-2xl font-bold mb-4 animate-fade-in">
+      <h1 className="text-2xl font-bold mb-4 flex items-center gap-2 animate-fade-in">
+        <span className="inline-block animate-bounce-slow text-green-600">
+          <FaLeaf size={28} />
+        </span>
         Welcome to EcoBehavior!
       </h1>
+
+      {/* Tailwind custom animation for subtle bounce */}
+      <style>{`
+        .animate-bounce-slow {
+          animation: bounce-slow 2.5s infinite;
+        }
+        @keyframes bounce-slow {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-8px); }
+        }
+      `}</style>
       <p className="mb-2 animate-fade-in delay-150">
         Here are some live eco-friendly tips to help you live more sustainably:
       </p>
